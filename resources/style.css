@@ -1,0 +1,429 @@
+:root {
+ 
+    --shade-1: #1da82b;
+    --shade-2: #1da82b90;
+    --shade-3: #2e9a2563;
+  }
+  
+
+body{
+    background-color: #8CC461;
+    
+}
+
+.title-container{
+    margin-top: 50px;
+    display: flex;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.titleAndScore{
+    
+    display: flex;
+    width: 800px;
+    height: 158px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    border: 2px solid #FFF;
+    background: rgba(28, 48, 120, 0.00);
+    justify-content: space-between;
+    padding: 16px 16px ;
+    
+    
+
+
+}
+
+.title{
+    width: 135px;
+    height: 37px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 4px;
+}
+
+.scores{
+    display: flex;
+}
+
+.comp_score{
+    width: 139px;
+    height: 160px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #FFF;
+    margin-right: 16px;
+    text-align: center;
+    color: #656565;
+    font-family: Roboto;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.7px;
+
+}
+
+.your_score{
+    width: 139px;
+    height: 160px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #FFF;
+    text-align: center;
+    color: #656565;
+    font-family: Roboto;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.7px;
+}
+
+.rule_button {
+    width: 72px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 2.1px;
+    width: 119px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 2px solid #FFF;
+    background: rgba(217, 217, 217, 0.00);
+  }
+  
+  .rule_container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap :15px
+    
+  }
+
+  
+.game_container{
+    display: flex;
+    width: 100%;
+    height: 450px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.triangle-container {
+   
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+}
+
+.button {
+    position: absolute;
+    width: 131px;
+    height: 131px;
+    border-radius: 50%;
+    background-color: white; /* Adjust the button color */
+    text-align: center;
+    line-height: 30px;
+    color: #fff; /* Adjust the button text color */
+    border: none;
+    cursor: pointer;
+}
+
+.button >img{
+    width: 131px;
+    height: 131px;
+    top: -16px;
+    left: -21px;
+    position: relative;
+}
+
+.icons{
+    width: 131px;
+    height: 131px;
+    
+}
+
+.pick_text{
+    margin-bottom: 50px;
+}
+
+#rock {
+    top: -42px;
+    left: -7%;
+    border-style: solid;
+    background-position: center;
+    border-width:15px;
+    background-size: 70px 54px;
+    border-color: #0074B6;
+    /* background-image: url("./icons8-fist-67\ 1.png"); */
+    background-color: white;
+    background-repeat: no-repeat;
+
+
+}
+
+#paper {
+    top: 150px;
+    right: 86px;
+    border-style: solid;
+    background-position: center;
+    border-width:15px;
+    background-size: 48px 63px;
+    border-color:#FFA943 ;
+    /* background-image: url("./17911\ 1.png"); */
+    background-color: white;
+    background-repeat: no-repeat;
+}
+
+#scissor {
+    top: -40px;
+    left: 196px;
+    border-style: solid;
+    background-position: center;
+    border-width:15px;
+    background-size: 68px 71px;
+    border-color:  #BD00FF;
+    /* background-image: url("./icons8-hand-64\ 1.png"); */
+    background-color: white;
+    background-repeat: no-repeat;
+}
+
+
+.rules{
+    width: 278px;
+    height: 356px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    border: 7px solid #FFF;
+    background: #004429;
+    position: relative;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    display: none;
+}
+
+.rule_close{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    background-color: #F00;
+    stroke-width: 5px;
+    color: #FFF;
+    font-weight: 1000;
+    font-size: 27px;
+    font-family: roboto;
+    border-color: white;
+    border-width: 5px;
+    box-shadow: none;
+    position: relative;
+    left :242px;
+    top:-20px;
+    padding: none;
+    margin: none;
+    
+}
+
+.rule_title{
+    justify-content: center;
+    margin-left: 59px;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+dd {
+  display: list-item;
+  list-style-image: url("./Rectangle\ 5.png");
+  padding-inline-start: 1ch;
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 13px;
+  width: 211px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.post_round{
+    position: relative;
+    display: none;
+}
+.result_box{
+    display: flex;
+    width: 100%;
+    gap: 6rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.player_side{
+    position: relative;
+    justify-content: center;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.7px;
+}
+
+
+.decided {
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 3.9px;
+}
+
+.decision p{
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 2.5px;
+    justify-content: center;
+}
+
+.replay_button{
+    width: 174px;
+    height: 44px;
+    flex-shrink: 0;
+    justify-content: center;
+    border-radius: 9px;
+    border: none;
+    background: #FFF;
+    flex-shrink: 0;
+    color: #6B6B6B;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.5px;
+    margin-left: 15px;
+}
+
+.comp_side{
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.7px;
+    
+}
+
+
+.hurray-page{
+    width: 100%;
+    display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hurray-container{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    position: relative;
+    margin-bottom: 100px;
+
+}
+.hurray-container img{
+    width: 37%;
+    height: 50%;
+}
+
+.hurray-container >h3 {
+    width: 464px;
+    height: 86px;
+    margin: 20px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 91px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 9.1px;
+    
+}
+
+.hurray-container > p{
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 41px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 4.1px;
+}
+
+.hurray-container > button{
+    width: 174px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    border: none;
+    background: #FFF;
+    flex-shrink: 0;
+    color: #6B6B6B;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.5px;
+}
+
+.green-bg {
+    border: none;
+    box-shadow:
+      0 0 0 10px var(--shade-1) inset,
+      0 0 0 10px var(--shade-1),
+      0 0 0 25px var(--shade-2),
+      0 0 0 40px var(--shade-3);
+    border-radius: 50%;
+  }
