@@ -20,16 +20,6 @@ let rulecontainer = document.querySelector('.rule_container')
 let resetbutton = document.querySelector('.restart')
 
 
-function updatePlayerScore(newScore) {
-    playerscore.innerText = newScore;
-    localStorage.setItem('playerScore', newScore);
-  }
-  
-
-  function updateComputerScore(newScore) {
-    compscore.innerText = newScore;
-    localStorage.setItem('computerScore', newScore);
-  }
 
 
 function initGame() {
@@ -63,19 +53,15 @@ resetbutton.addEventListener('click', () =>{
     hurraypage.style.display = 'none'
     nextButton.style.display = 'none'
 })
-
 replaybutton.addEventListener('click',()=>{
     gamecontainer.style.display = 'flex'
     postround.style.display = 'none'
-    nextButton.style.display = 'none'
-    
-    
+    nextButton.style.display = 'none'    
 })
 
 ruleButton.addEventListener('click', () =>{
     ruleContent.style.display = 'block';
 })
-
 ruleClose.addEventListener('click' , () =>{
     ruleContent.style.display = 'none';
 })
@@ -103,156 +89,91 @@ scissorButton.addEventListener('click', () =>{
     playerChose = 3
     computerChoice();
     playGame()
-
+    
 })}
+playerchoice()
 
 function computerChoice() {
-	computerchose = Math.floor(Math.random() * 3 + 1);
+    computerchose = Math.floor(Math.random() * 3 + 1);
 	
 }
+function playerwin(playerChose,computerchose){
+    gamecontainer.style.display = 'none'
+	postround.style.display = 'flex'
+    playerpick.src = `./resources/${playerChose}.svg`
+    comppick.src =` ./resources/${computerchose}.svg`
+    postrounddecision.innerText = "YOU WON"
+    postrounddecisionp.style.display = 'FLEX'
+    playerpick.classList.add("green-bg")
+    comppick.classList.remove("green-bg")
+    playerscore.innerText = parseInt(playerscore.innerText) + 1
+    nextButton.style.display = 'block'
+}
 
+function compwin(playerChose,computerchose){
+    gamecontainer.style.display = 'none'
+    postround.style.display = 'flex'
+    playerpick.src = `./resources/${playerChose}.svg`
+    comppick.src =   `./resources/${computerchose}.svg`
+    postrounddecision.innerText = "YOU LOST"
+    postrounddecisionp.style.display = 'FLEX'
+    comppick.classList.add("green-bg")
+    playerpick.classList.remove("green-bg")
+    compscore.innerText = parseInt(compscore.innerText) + 1
+    nextButton.style.display = 'none'
+}
+
+function tieup(playerChose,computerchose){
+    gamecontainer.style.display = 'none'
+	postround.style.display = 'flex'
+    comppick.classList.remove("green-bg")
+    playerpick.classList.remove("green-bg")
+    playerpick.src =  `./resources/${playerChose}.svg`
+    comppick.src = `./resources/${computerchose}.svg`
+    postrounddecision.innerText = "TIE UP"
+    postrounddecisionp.style.display = 'none'
+    nextButton.style.display = 'none'
+}
 function compare(playerChoice, computerChoice) {
 	switch(playerChose) {
 		case 1:
 			switch(computerchose) {
 				case 1:
-                    
-                    gamecontainer.style.display = 'none'
-					postround.style.display = 'flex'
-                    comppick.classList.remove("green-bg")
-                    playerpick.classList.remove("green-bg")
-                    playerpick.src = "./resources/rock.svg"
-                    comppick.src = "./resources/rock.svg"
-                    postrounddecision.innerText = "TIE UP"
-                    postrounddecisionp.style.display = 'none'
-                    nextButton.style.display = 'none'
+                    tieup(playerChose, computerchose)
                     
                     break;
 				case 2:
-                 
-					gamecontainer.style.display = 'none'
-					postround.style.display = 'flex'
-                    playerpick.src = "./resources/rock.svg"
-                    comppick.src = "./resources/paper.svg"
-                    postrounddecision.innerText = "YOU LOST"
-                    postrounddecisionp.style.display = 'FLEX'
-                    comppick.classList.add("green-bg")
-                    playerpick.classList.remove("green-bg")
-                    compscore.innerText = parseInt(compscore.innerText) + 1
-                    nextButton.style.display = 'none'
-                    
-                    break;
+                    compwin(playerChose, computerchose)
+		             break;
 				case 3:
-                    
-					
-                    gamecontainer.style.display = 'none'
-					postround.style.display = 'flex'
-                    playerpick.src = "./resources/rock.svg"
-                    comppick.src = "./resources/scissor.svg"
-                    postrounddecision.innerText = "YOU WON"
-                    postrounddecisionp.style.display = 'FLEX'
-                    playerpick.classList.add("green-bg")
-                    comppick.classList.remove("green-bg")
-                    playerscore.innerText = parseInt(playerscore.innerText) + 1
-                    nextButton.style.display = 'block'
-                    
-                    break;
+                    playerwin(playerChose,computerchose)
+                   break;
 			}
 			break;
 		case 2:
 			switch(computerchose) {
 				case 1:
-					
-                    console.log(playerChose,computerchose)
-					console.log("You won.") ;
-                    gamecontainer.style.display = 'none'
-					postround.style.display = 'flex'
-                    playerpick.src = "./resources/paper.svg"
-                    comppick.src = "./resources/rock.svg"
-                    postrounddecision.innerText = "YOU WON"
-                    postrounddecisionp.style.display = 'FLEX'
-                    playerpick.classList.add("green-bg")
-                    comppick.classList.remove("green-bg")
-                    playerscore.innerText = parseInt(playerscore.innerText) + 1
-                    nextButton.style.display = 'block'
-                    
+					playerwin(playerChose,computerchose)
                     break;
 				case 2:
-					console.log(playerChose,computerchose)
-                    gamecontainer.style.display = 'none'
-					postround.style.display = 'flex'
-                    comppick.classList.remove("green-bg")
-                    playerpick.classList.remove("green-bg")
-                    playerpick.src = "./resources/paper.svg"
-                    comppick.src = "./resources/paper.svg"
-                    postrounddecision.innerText = "TIE UP"
-                    postrounddecisionp.style.display = 'none'
-                    nextButton.style.display = 'none'
-                    
-                    break;
+					tieup(playerChose, computerchose)
+                     break;
 				case 3:
-					
-                    console.log(playerChose,computerchose)
-					gamecontainer.style.display = 'none'
-					postround.style.display = 'flex'
-                    playerpick.src = "./resources/paper.svg"
-                    comppick.src = "./resources/scissor.svg"
-                    postrounddecision.innerText = "YOU LOST"
-                    postrounddecisionp.style.display = 'FLEX'
-                    comppick.classList.add("green-bg")
-                    playerpick.classList.remove("green-bg")
-                    compscore.innerText = parseInt(compscore.innerText) + 1
-                    nextButton.style.display = 'none'
-            
+					compwin(playerChose, computerchose)
                     break;
 			}
 			break;
 		case 3:
 			switch(computerchose) {
-				case 1:
-					
-                    console.log(playerChose,computerchose)
-					gamecontainer.style.display = 'none'
-					postround.style.display = 'flex'
-                    playerpick.src = "./resources/scissor.svg"
-                    comppick.src = "./resources/rock.svg"
-                    postrounddecision.innerText = "YOU LOST"
-                    postrounddecisionp.style.display = 'FLEX'
-                    comppick.classList.add("green-bg")
-                    playerpick.classList.remove("green-bg")
-                    compscore.innerText = parseInt(compscore.innerText) + 1
-                    nextButton.style.display = 'none'
-                    
+				case 1:		
+                    compwin(playerChose, computerchose)
                     break;
 				case 2:
-					
-                    console.log(playerChose,computerchose)
-					console.log("You won.") ;
-                    gamecontainer.style.display = 'none'
-					postround.style.display = 'flex'
-                    playerpick.src = "./resources/scissor.svg"
-                    comppick.src = "./resources/paper.svg"
-                    postrounddecision.innerText = "YOU WON"
-                    postrounddecisionp.style.display = 'FLEX'
-                    playerpick.classList.add("green-bg")
-                    comppick.classList.remove("green-bg")
-                    playerscore.innerText = parseInt(playerscore.innerText) + 1
-                    nextButton.style.display = 'block'
-                   
+					playerwin(playerChose,computerchose)
                     break;
 				case 3:
-					console.log(playerChose,computerchose)
-                    gamecontainer.style.display = 'none'
-					postround.style.display = 'flex'
-                    comppick.classList.remove("green-bg")
-                    playerpick.classList.remove("green-bg")
-                    playerpick.src = "./resources/scissor.svg"
-                    comppick.src = "./resources/scissor.svg"
-                    postrounddecision.innerText = "TIE UP"
-                    postrounddecisionp.style.display = 'none'
-                    nextButton.style.display = 'none'
-                   
-                    break;
+					tieup(playerChose, computerchose)
+                   break;
 			}
 			break;
 	}
@@ -266,6 +187,5 @@ function playGame() {
     }
 }
 
-playerchoice()
-computerChoice()
+// computerChoice()
 // console.log(compare(playerchoice,computerChoice))
