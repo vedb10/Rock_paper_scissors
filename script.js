@@ -19,8 +19,8 @@ let compscore = document.querySelector('#comp_score')
 let rulecontainer = document.querySelector('.rule_container')
 let resetbutton = document.querySelector('.restart')
 
-const storedPlayerScore = localStorage.getItem('playerScore');
-const storedComputerScore = localStorage.getItem('computerScore');
+const storedPlayerScore = parseInt(localStorage.getItem('playerScore'));
+const storedComputerScore = parseInt(localStorage.getItem('computerScore'));
 
 playerscore.innerText = storedPlayerScore;
 compscore.innerText = storedComputerScore;
