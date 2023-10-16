@@ -19,28 +19,11 @@ let compscore = document.querySelector('#comp_score')
 let rulecontainer = document.querySelector('.rule_container')
 let resetbutton = document.querySelector('.restart')
 
+const storedPlayerScore = localStorage.getItem('playerScore');
+const storedComputerScore = localStorage.getItem('computerScore');
 
-
-
-function initGame() {
-    
-    const storedPlayerScore = localStorage.getItem('playerScore');
-    const storedComputerScore = localStorage.getItem('computerScore');
-  
-    if (storedPlayerScore) {
-      playerscore.innerText = storedPlayerScore;
-    } else {
-      playerscore.innerText = '0';
-    }
-  
-    if (storedComputerScore) {
-      compscore.innerText = storedComputerScore;
-    } else {
-      compscore.innerText = '0';
-    }
-  }
-initGame()
-
+playerscore.innerText = storedPlayerScore;
+compscore.innerText = storedComputerScore;
 
 let playerChose = 0
 let computerchose = 0
@@ -186,6 +169,3 @@ function playGame() {
         compare(playerChose, computerchose);
     }
 }
-
-// computerChoice()
-// console.log(compare(playerchoice,computerChoice))
